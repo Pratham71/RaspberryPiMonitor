@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi Monitor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #36393f;
+            color: #fff;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            background-color: #2f3136;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #7289da;
+            color: #fff;
+            border-bottom: none;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .progress {
+            height: 25px;
+        }
+        .progress-bar {
+            background-color: #43b581;
+        }
+        .fan-status {
+            font-weight: bold;
+            color: #43b581;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        CPU Usage
+                    </div>
+                    <div class="card-body">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{ cpu_usage }}%;" aria-valuenow="{{ cpu_usage }}" aria-valuemin="0" aria-valuemax="100">{{ cpu_usage }}%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        CPU Temperature
+                    </div>
+                    <div class="card-body">
+                        <p>{{ cpu_temp }}°C</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        GPU Usage
+                    </div>
+                    <div class="card-body">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{ gpu_usage }}%;" aria-valuenow="{{ gpu_usage }}" aria-valuemin="0" aria-valuemax="100">{{ gpu_usage }}%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        GPU Temperature
+                    </div>
+                    <div class="card-body">
+                        <p>{{ gpu_temp }}°C</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        RAM Usage
+                    </div>
+                    <div class="card-body">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: {{ ram_usage }}%;" aria-valuenow="{{ ram_usage }}" aria-valuemin="0" aria-valuemax="100">{{ ram_usage }}%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
